@@ -55,13 +55,13 @@
                 mode:  {name: "javascript", json: true},
                 theme: "ambiance"
             });
-            editor.setOption("extraKeys", {
-                CodeMirror.keyNames.Ctrl-Space: function(cm) {
-                    alert("AHHHHH");
-                    // var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
-                    // cm.replaceSelection(spaces);
-                }
-                });
+            // editor.setOption("extraKeys", {
+            //     CodeMirror.keyNames.Ctrl-Space: function(cm) {
+            //         alert("AHHHHH");
+            //         // var spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
+            //         // cm.replaceSelection(spaces);
+            //     }
+            //     });
             editor.setSize(null, "100%");
 
         }, "text");
