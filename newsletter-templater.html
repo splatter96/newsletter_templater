@@ -13,6 +13,25 @@
     html, body {
         height: 100%;
     }
+    .CodeMirror {
+        font-family: monospace;
+        font-size: 14px;
+    }
+
+    .btn {
+        position: absolute;
+        top: 2%;
+        right: 1%;
+        background-color: #555;
+        opacity: 0.5;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+    }
 
     .column {
         float: left;
@@ -29,8 +48,7 @@
     }
     </style>
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/codemirror/CodeMirror/master/lib/codemirror.css">
-        <!-- <link rel="stylesheet" type="text/css" href="codemirror-5.49.2/theme/ambiance.css"> -->
+        <link rel="stylesheet" type="text/css" href="codemirror-5.49.2/lib/codemirror.css">
         <link rel="stylesheet" type="text/css" href="codemirror-5.49.2/theme/yonce.css">
         <link rel="stylesheet" type="text/css" href="codemirror-5.49.2/addon/fold/foldgutter.css">
 
@@ -49,16 +67,27 @@
 <script>
     var template;
     var editor;
+    var final_text;
 
     function renderOutput(){
         try{
             var data = editor.getValue();
             var rendered = Mustache.render(template, JSON.parse(data));
             $('#rendered_output').html(rendered);
-            $('#text_output').val(rendered);
+            final_text = rendered;
         }catch(err){
             $('#rendered_output').html(err);
         }
+    }
+
+    function copyToClipboard(){
+        var textarea = document.createElement("textarea");
+        textarea.textContent = final_text;
+        textarea.style.position = "fixed";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("cut");
+        document.body.removeChild(textarea);
     }
 
     $( document ).ready(function() {
@@ -81,10 +110,12 @@
 
         $.get("input.tmpl", function(resp) {
             template = resp;
+            renderOutput();
         }, "text");
 
         $.get("default.data", function(resp) {
             $("#editor").val(resp);
+            renderOutput();
         }, "text");
 
         $("#run").click(function(){
@@ -95,16 +126,14 @@
 </script>
 
 <div class="row" style="height: 100%">
-    <!-- <div class="column" style="height: 100%"> <textarea style="width: 100%; height: 100%;" id="editor"></textarea> </div> -->
     <div class="column"> <textarea id="editor"></textarea> </div>
 
-    <div class="column"><div style="height: 100%; width: 100%; overflow-y:scroll" id="rendered_output">Ersetzen klicken</div></div>
+    <div class="column">
+        <button class="btn" onclick="copyToClipboard()">Copy</button>
+        <div style="height: 100%; width: 100%; overflow-y: auto" id="rendered_output">Ersetzen klicken</div>
+    </div>
 
-    <div  style="display: none;"> <textarea id="text_output"></textarea> </div>
 </div>
-<!-- <div class="row">
-    <div class="column"><button id="run" type="button">Ersetzen</button></div>
-</div> -->
-</body>
 
+</body>
 </html>
