@@ -1,0 +1,72 @@
+{
+    "title":    "42. Newsletter der KSG Dresden",
+    "news":[
+            {
+                "title": "Exerzitien zeug stuff",
+                "lines": [
+                        "Dies ist der Haupttext zum Exerzitien eintrag",
+                        "Dies ist die zweite Zeile zum Exerzitien eintrag"
+                        ],
+                "author": "Sr Claudia"
+            },
+            {
+                "title": "Nachtcafe",
+                "lines":[
+                        "Nachtcafe in der Nacht mit Kaffee im Cafe",
+                        "Nachtcafe in der Nacht mit Kaffee im Cafe die zweite"
+                        ],
+                "author": "Moritz"
+            }
+           ],
+    "week": { 
+        "ghosts": "Geister diese Woche sind Paul A Thomas",
+        "days": [
+            {
+                "date": "Sonntag (27.10)",
+                "activities": [
+                    {
+                        "time": "18:00 Uhr",
+                        "activity": "Tanzabend"
+                    },
+                    {
+                        "time": "22:00 Uhr",
+                        "activity": "Tatort"
+                    }
+                ]
+            },
+            {
+                "date": "Montag (28.10)",
+                "activities": [
+                    {
+                        "time": "19:00 Uhr",
+                        "activity": "Gottesdienst"
+                    },
+                    {
+                        "time": "22:00 Uhr",
+                        "activity": "Keller"
+                    }
+                ]
+            }
+
+        ]
+    },
+    "jobs":[
+            {
+                "title": "... Referent fuer Oeffentlichkeitsarbeit",
+                "lines":[
+                        "Als Referent fuer Oeffentlichkeitsarbeit musst du refferieren und oeffentlich sein",
+                        "ausserdem musst du plakate machen und in coolen sitzungen sitzen"
+                        ],
+                "author": "Patrizia"
+            },
+            {
+                "title": "... Webmaster",
+                "lines":[
+                        "Als webmaster musst du coole webseiten bauen",
+                        "und newsletter und anders zeug"
+                        ],
+                "author": "pauerbach"
+            }
+           ],
+    "joke": "Was erhält man, wenn man einen Rottweiler und einen Jaguar kreuzt? </br></br> Ärger mit dem Postboten"
+}
